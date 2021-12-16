@@ -1,0 +1,9 @@
+{
+  "name": "blog-express-node",
+  "version": "1.0.0",
+  "description": "Blog with NodeJS ",
+  "main": "dist/server.js",
+  "author": "Matheus Santos <matheussm301@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
