@@ -5,5 +5,12 @@
   "main": "dist/server.js",
   "author": "Matheus Santos <matheussm301@gmail.com>",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "devDependencies": {
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
