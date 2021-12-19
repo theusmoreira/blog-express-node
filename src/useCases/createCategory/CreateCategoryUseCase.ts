@@ -14,6 +14,8 @@ export class CreateCategoryUseCase {
       throw new Error('Category already exists');
     }
 
-    await this.categoriesRepositories.create({ name });
+    const category = await this.categoriesRepositories.create({ name });
+
+    return category;
   }
 }
