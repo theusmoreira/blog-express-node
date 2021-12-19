@@ -16,11 +16,21 @@ export class CategoriesRepositoriesInMemory implements ICategoriesRepository {
     return this.categories;
   }
 
-  async create(data: ICreateCategoryDTO): Promise<void> {
+  async create(data: ICreateCategoryDTO): Promise<Category> {
     const category = new Category();
 
     category.name = data.name;
 
     this.categories.push(category);
+
+    return category;
+  }
+
+  async findByIds(ids: string[]): Promise<Category[]> {
+    const categories = this.categories.filter(category =>
+      ids.includes(category.id),
+    );
+
+    return categories;
   }
 }
