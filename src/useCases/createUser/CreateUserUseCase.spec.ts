@@ -1,3 +1,4 @@
+import { AppError } from '@/errors/AppError';
 import { UsersRepositoryInMemory } from '@/repositories/implementations/in-memory/UsersRepositoryInMemory';
 
 import { CreateUserUseCase } from './CreateUserUseCase';
@@ -33,6 +34,6 @@ describe('CreateUserUseCase', () => {
         name: 'any_name',
         email: 'any_email',
       }),
-    ).rejects.toThrowError('User already exists');
+    ).rejects.toBeInstanceOf(AppError);
   });
 });

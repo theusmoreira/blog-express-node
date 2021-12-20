@@ -1,3 +1,4 @@
+import { AppError } from '@/errors/AppError';
 import { PostsRepositoryInMemory } from '@/repositories/implementations/in-memory/PostsRepositoryInMemory';
 import { UsersRepositoryInMemory } from '@/repositories/implementations/in-memory/UsersRepositoryInMemory';
 
@@ -39,6 +40,6 @@ describe('CreatePostUseCase', () => {
         description: 'any_description',
         authorId: 'any_author_id',
       }),
-    ).rejects.toThrowError('User not found');
+    ).rejects.toBeInstanceOf(AppError);
   });
 });

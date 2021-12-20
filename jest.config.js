@@ -1,7 +1,7 @@
 module.exports = {
   bail: true,
   clearMocks: true,
-  collectCoverage: true,
+  collectCoverage: false,
   collectCoverageFrom: [
     '<rootDir>/src/**/useCases/**/*.ts'
   ],

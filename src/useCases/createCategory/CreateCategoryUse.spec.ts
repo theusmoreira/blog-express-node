@@ -1,3 +1,4 @@
+import { AppError } from '@/errors/AppError';
 import { CategoriesRepositoriesInMemory } from '@/repositories/implementations/in-memory/CategoriesRepositoriesInMemory';
 
 import { CreateCategoryUseCase } from './CreateCategoryUseCase';
@@ -22,8 +23,8 @@ describe('CreateCategoryUseCase', () => {
   it('should not be able to create a new category with name exists', async () => {
     await sut.execute({ name: 'any_name' });
 
-    await expect(sut.execute({ name: 'any_name' })).rejects.toThrowError(
-      'Category already exists',
+    await expect(sut.execute({ name: 'any_name' })).rejects.toBeInstanceOf(
+      AppError,
     );
   });
 });

@@ -1,3 +1,4 @@
+import { AppError } from '@/errors/AppError';
 import { CategoriesRepositoriesInMemory } from '@/repositories/implementations/in-memory/CategoriesRepositoriesInMemory';
 import { PostsRepositoryInMemory } from '@/repositories/implementations/in-memory/PostsRepositoryInMemory';
 
@@ -42,7 +43,7 @@ describe('CreatePostCategoriesUseCase', () => {
         postId: 'postId',
         categoryIds: ['categoryId'],
       }),
-    ).rejects.toBeInstanceOf(Error);
+    ).rejects.toBeInstanceOf(AppError);
   });
 
   it('should not be able to add a inexistent category to post', async () => {
@@ -57,6 +58,6 @@ describe('CreatePostCategoriesUseCase', () => {
         postId: post.id,
         categoryIds: ['categoryId'],
       }),
-    ).rejects.toBeInstanceOf(Error);
+    ).rejects.toBeInstanceOf(AppError);
   });
 });
