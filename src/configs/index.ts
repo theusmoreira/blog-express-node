@@ -1,6 +1,6 @@
 import { config } from 'dotenv';
 
-config();
+config({ path: `.env.${process.env.NODE_ENV || 'dev'}` });
 
 export const PRODUCTION_ENV = process.env.NODE_ENV === 'prod';
 export const DEV_ENV = process.env.NODE_ENV === 'dev';
