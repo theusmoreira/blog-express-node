@@ -34,7 +34,6 @@ export class CreatePostUseCase {
       title,
       description,
       authorId,
-      categories,
     });
 
     return post;

@@ -15,6 +15,7 @@ export class PostsRepositoryInMemory implements IPostsRepository {
   }
 
   async create({
+    id,
     title,
     authorId,
     description,
@@ -23,6 +24,7 @@ export class PostsRepositoryInMemory implements IPostsRepository {
     const post = new Post();
 
     Object.assign(post, {
+      id: id || post.id,
       title,
       description,
       authorId,
