@@ -2,16 +2,18 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   JoinTable,
   ManyToMany,
+  ManyToOne,
   PrimaryColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
-import { Category } from '.';
+import { Category, User } from '.';
 
-@Entity('pots')
+@Entity('posts')
 export class Post {
   @PrimaryColumn()
   id?: string;
@@ -21,6 +23,12 @@ export class Post {
 
   @Column()
   description: string;
+
+  @ManyToOne(() => User)
+  @JoinColumn({
+    name: 'author_id',
+  })
+  author: User;
 
   @Column({
     name: 'author_id',
