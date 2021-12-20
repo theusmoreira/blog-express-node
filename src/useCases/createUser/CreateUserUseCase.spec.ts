@@ -1,4 +1,4 @@
-import { UsersRepositoryInMemory } from '@/repositories/implementations/UsersRepositoryInMemory';
+import { UsersRepositoryInMemory } from '@/repositories/implementations/in-memory/UsersRepositoryInMemory';
 
 import { CreateUserUseCase } from './CreateUserUseCase';
 

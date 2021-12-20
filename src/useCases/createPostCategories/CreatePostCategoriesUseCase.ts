@@ -1,3 +1,5 @@
+import { inject, injectable } from 'tsyringe';
+
 import { Post } from '@/entities';
 import { ICategoriesRepository } from '@/repositories/ICategoriesRepository';
 import { IPostsRepository } from '@/repositories/IPostsRepository';
@@ -7,9 +9,12 @@ interface IRequest {
   categoryIds: string[];
 }
 
+@injectable()
 export class CreatePostCategoriesUseCase {
   constructor(
+    @inject('PostsRepository')
     private readonly postsRepository: IPostsRepository,
+    @inject('CategoriesRepository')
     private readonly categoriesRepository: ICategoriesRepository,
   ) {}
   async execute({ postId, categoryIds }: IRequest): Promise<Post> {

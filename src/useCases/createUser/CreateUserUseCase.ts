@@ -1,3 +1,5 @@
+import { inject, injectable } from 'tsyringe';
+
 import { IUsersRepositories } from '@/repositories/IUsersRepositories';
 
 interface IRequest {
@@ -5,8 +7,12 @@ interface IRequest {
   email: string;
 }
 
+@injectable()
 export class CreateUserUseCase {
-  constructor(private readonly usersRepositories: IUsersRepositories) {}
+  constructor(
+    @inject('UsersRepositories')
+    private readonly usersRepositories: IUsersRepositories,
+  ) {}
 
   async execute({ name, email }: IRequest) {
     const userAlreadyExists = await this.usersRepositories.findByEmail(email);

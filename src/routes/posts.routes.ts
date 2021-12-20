@@ -1,8 +1,9 @@
 import { Router } from 'express';
 
-import { createPostController } from '@/useCases/createPost';
+import { CreatePostController } from '@/useCases/createPost/CreatePostController';
 
 const postsRoutes = Router();
+const createPostController = new CreatePostController();
 
 postsRoutes.post('/', (request, response) =>
   createPostController.handle(request, response),
