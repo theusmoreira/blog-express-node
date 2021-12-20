@@ -1,7 +1,7 @@
 import { ICreatePostDTO } from '@/dtos';
 import { Post } from '@/entities';
 
-import { IPostsRepository } from '../IPostsRepository';
+import { IPostsRepository } from '../../IPostsRepository';
 
 export class PostsRepositoryInMemory implements IPostsRepository {
   private posts: Post[] = [];

@@ -1,6 +1,6 @@
-import { CategoriesRepositoriesInMemory } from '@/repositories/implementations/CategoriesRepositoriesInMemory';
-import { PostsRepositoryInMemory } from '@/repositories/implementations/PostsRepositoryInMemory';
-import { UsersRepositoryInMemory } from '@/repositories/implementations/UsersRepositoryInMemory';
+import { CategoriesRepositoriesInMemory } from '@/repositories/implementations/in-memory/CategoriesRepositoriesInMemory';
+import { PostsRepositoryInMemory } from '@/repositories/implementations/in-memory/PostsRepositoryInMemory';
+import { UsersRepositoryInMemory } from '@/repositories/implementations/in-memory/UsersRepositoryInMemory';
 
 import { CreatePostUseCase } from './CreatePostUseCase';
 

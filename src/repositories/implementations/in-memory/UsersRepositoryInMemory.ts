@@ -1,7 +1,7 @@
 import { ICreateUserDTO } from '@/dtos';
 import { User } from '@/entities';
 
-import { IUsersRepositories } from '../IUsersRepositories';
+import { IUsersRepositories } from '../../IUsersRepositories';
 
 export class UsersRepositoryInMemory implements IUsersRepositories {
   private users: User[] = [];

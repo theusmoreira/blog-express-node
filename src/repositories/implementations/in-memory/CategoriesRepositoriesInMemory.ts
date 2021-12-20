@@ -1,7 +1,7 @@
 import { ICreateCategoryDTO } from '@/dtos';
 import { Category } from '@/entities';
 
-import { ICategoriesRepository } from '../ICategoriesRepository';
+import { ICategoriesRepository } from '../../ICategoriesRepository';
 
 export class CategoriesRepositoriesInMemory implements ICategoriesRepository {
   private categories: Category[] = [];

@@ -1,4 +1,4 @@
-import { CategoriesRepositoriesInMemory } from '@/repositories/implementations/CategoriesRepositoriesInMemory';
+import { CategoriesRepositoriesInMemory } from '@/repositories/implementations/in-memory/CategoriesRepositoriesInMemory';
 
 import { CreateCategoryUseCase } from './CreateCategoryUseCase';
 
