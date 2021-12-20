@@ -13,7 +13,9 @@ export class PostsRepository implements IPostsRepository {
   }
 
   async findById(id: string): Promise<Post | undefined> {
-    const post = await this.ormRepository.findOne(id);
+    const post = await this.ormRepository.findOne(id, {
+      relations: ['author', 'categories'],
+    });
 
     return post;
   }
