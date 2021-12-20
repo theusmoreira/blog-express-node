@@ -1,6 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
 import { Post } from '@/entities';
+import { AppError } from '@/errors/AppError';
 import { ICategoriesRepository } from '@/repositories/ICategoriesRepository';
 import { IPostsRepository } from '@/repositories/IPostsRepository';
 
@@ -21,13 +22,13 @@ export class CreatePostCategoriesUseCase {
     const postExists = await this.postsRepository.findById(postId);
 
     if (!postExists) {
-      throw new Error('Post not found');
+      throw new AppError('Post not found');
     }
 
     const categories = await this.categoriesRepository.findByIds(categoryIds);
 
     if (categories.length !== categoryIds.length) {
-      throw new Error('Category not found');
+      throw new AppError('Category not found');
     }
 
     postExists.categories = categories;

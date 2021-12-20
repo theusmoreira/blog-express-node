@@ -5,19 +5,14 @@ import { CreatePostUseCase } from './CreatePostUseCase';
 
 export class CreatePostController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { title, authorId, categories, description } = request.body;
+    const { title, authorId, description } = request.body;
 
-    try {
-      const createPostUseCase = container.resolve(CreatePostUseCase);
-      const post = await createPostUseCase.execute({
-        title,
-        authorId,
-        description,
-      });
-      return response.status(201).json(post);
-    } catch (error) {
-      console.log(error);
-      return response.status(400).json(error);
-    }
+    const createPostUseCase = container.resolve(CreatePostUseCase);
+    const post = await createPostUseCase.execute({
+      title,
+      authorId,
+      description,
+    });
+    return response.status(201).json(post);
   }
 }

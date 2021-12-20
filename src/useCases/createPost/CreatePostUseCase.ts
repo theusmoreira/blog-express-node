@@ -1,5 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
+import { AppError } from '@/errors/AppError';
 import { IPostsRepository } from '@/repositories/IPostsRepository';
 import { IUsersRepositories } from '@/repositories/IUsersRepositories';
 
@@ -22,7 +23,7 @@ export class CreatePostUseCase {
     const author = await this.usersRepositories.findById(authorId);
 
     if (!author) {
-      throw new Error('User not found');
+      throw new AppError('User not found');
     }
 
     const post = await this.postsRepository.create({
