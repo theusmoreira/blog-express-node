@@ -45,4 +45,8 @@ export class PostsRepository implements IPostsRepository {
 
     return post;
   }
+
+  async delete(id: string): Promise<void> {
+    await this.ormRepository.delete(id);
+  }
 }

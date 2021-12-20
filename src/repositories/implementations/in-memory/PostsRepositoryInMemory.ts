@@ -35,4 +35,14 @@ export class PostsRepositoryInMemory implements IPostsRepository {
 
     return post;
   }
+
+  async delete(id: string): Promise<void> {
+    const postIndex = this.posts.findIndex(post => post.id === id);
+
+    if (postIndex === -1) {
+      throw new Error('Post not found');
+    }
+
+    this.posts.splice(postIndex, 1);
+  }
 }

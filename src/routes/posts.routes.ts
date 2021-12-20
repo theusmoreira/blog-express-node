@@ -2,6 +2,7 @@ import { Router } from 'express';
 
 import { CreatePostController } from '@/useCases/createPost/CreatePostController';
 import { CreatePostCategoriesController } from '@/useCases/createPostCategories/CreatePostCategoriesController';
+import { DeletePostController } from '@/useCases/deletePost/DeletePostController';
 import { FindPostsController } from '@/useCases/findPosts/FindPostsController';
 import { ShowPostByIdController } from '@/useCases/showPostById/ShowPostByIdController';
 import { UpdatePostController } from '@/useCases/updatePost/UpdatePostController';
@@ -12,6 +13,7 @@ const createPostCategoriesController = new CreatePostCategoriesController();
 const findPostsController = new FindPostsController();
 const showPostByIdController = new ShowPostByIdController();
 const updatePostController = new UpdatePostController();
+const deletePostController = new DeletePostController();
 
 postsRoutes.post('/', (request, response) =>
   createPostController.handle(request, response),
@@ -31,6 +33,10 @@ postsRoutes.get('/:id', (request, response) =>
 
 postsRoutes.put('/:id', (request, response) =>
   updatePostController.handle(request, response),
+);
+
+postsRoutes.delete('/:id', (request, response) =>
+  deletePostController.handle(request, response),
 );
 
 export { postsRoutes };
