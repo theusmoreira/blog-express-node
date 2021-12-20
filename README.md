@@ -173,6 +173,7 @@ Recebe https status 204
 
 ### Retorno
 ```json
+
 {
   "id": "3ca22d39-ca3a-4d29-ba62-1a0d6a896093",
   "title": "New post",
